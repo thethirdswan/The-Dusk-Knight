@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="InputEventJoypadButton" id=1]
+button_index = 1
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="Button" type="Button"]
+visible = false
+margin_left = -44.0
+margin_top = -37.0
+margin_right = 49.0
+margin_bottom = -17.0
+shortcut = SubResource( 2 )
+text = "Buka peti (B)"
