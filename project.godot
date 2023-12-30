@@ -58,11 +58,17 @@ _global_script_class_icons={
 
 config/name="The Dusk Knight"
 run/main_scene="res://Main.tscn"
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [audio]
 
 icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
+window/size/fullscreen=true
 
 [editor]
 

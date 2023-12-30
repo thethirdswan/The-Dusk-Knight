@@ -722,9 +722,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 33/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 32, 20 )
-
 [sub_resource type="InputEventJoypadButton" id=21]
 button_index = 11
 
@@ -736,6 +733,9 @@ button_index = 11
 
 [sub_resource type="ShortCut" id=26]
 shortcut = SubResource( 25 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 32, 20 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -801,6 +801,101 @@ tile_data = PoolIntArray( 983037, 4, 0, 983038, 4, 0, 983039, 4, 0, 917568, 4, 0
 [node name="Knight" parent="." instance=ExtResource( 6 )]
 position = Vector2( 64, 464 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Knight"]
+follow_viewport_scale = 999.947
+
+[node name="itemlist" type="Label" parent="Knight/CanvasLayer"]
+anchor_left = 0.016
+anchor_top = 0.027
+anchor_right = 0.062
+anchor_bottom = 0.08
+margin_left = -0.384001
+margin_top = -0.200001
+margin_right = 3.512
+margin_bottom = -0.999973
+text = "Barang :
+"
+
+[node name="itemnotification" type="Label" parent="Knight/CanvasLayer/itemlist"]
+visible = false
+anchor_top = 0.753
+anchor_bottom = 0.753
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 38.0
+
+[node name="Timer" type="Timer" parent="Knight/CanvasLayer/itemlist/itemnotification"]
+wait_time = 5.0
+
+[node name="gameover" type="Control" parent="Knight/CanvasLayer"]
+visible = false
+margin_right = 1400.0
+margin_bottom = 768.0
+
+[node name="ColorRect" type="ColorRect" parent="Knight/CanvasLayer/gameover"]
+margin_right = 1400.0
+margin_bottom = 768.0
+color = Color( 0, 0, 0, 0.541176 )
+
+[node name="Panel" type="Panel" parent="Knight/CanvasLayer/gameover"]
+margin_left = 504.0
+margin_top = 168.0
+margin_right = 831.16
+margin_bottom = 393.76
+
+[node name="Label" type="Label" parent="Knight/CanvasLayer/gameover/Panel"]
+anchor_left = 0.42
+anchor_top = 0.206
+anchor_right = 0.592
+anchor_bottom = 0.257
+margin_left = -1.40717
+margin_top = 1.49343
+margin_right = 11.3213
+margin_bottom = 3.97967
+text = "You Died..."
+align = 1
+
+[node name="gameoverbutton" type="Button" parent="Knight/CanvasLayer/gameover/Panel"]
+anchor_left = 0.32
+anchor_top = 0.471
+anchor_right = 0.687
+anchor_bottom = 0.86
+margin_left = -16.6912
+margin_top = -2.33296
+margin_right = 15.2411
+margin_bottom = 15.8464
+disabled = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 22 )
+text = "Retry"
+icon = ExtResource( 14 )
+
+[node name="start" type="Control" parent="Knight/CanvasLayer"]
+margin_right = 1400.0
+margin_bottom = 768.0
+script = ExtResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="Knight/CanvasLayer/start"]
+margin_right = 1400.0
+margin_bottom = 768.0
+color = Color( 0, 0, 0, 0.541176 )
+
+[node name="TextureRect" type="TextureRect" parent="Knight/CanvasLayer/start/ColorRect"]
+margin_left = 440.0
+margin_top = 32.0
+margin_right = 920.0
+margin_bottom = 512.0
+texture = ExtResource( 15 )
+
+[node name="start" type="Button" parent="Knight/CanvasLayer/start/ColorRect"]
+margin_left = 648.0
+margin_top = 536.0
+margin_right = 720.0
+margin_bottom = 572.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 26 )
+text = "Start"
+
 [node name="Camera2D" type="Camera2D" parent="Knight"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
@@ -846,111 +941,10 @@ shortcut_in_tooltip = false
 position = Vector2( 816, 624 )
 shape = SubResource( 20 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_scale = 999.947
-
-[node name="itemlist" type="Label" parent="CanvasLayer"]
-anchor_left = 0.016
-anchor_top = 0.027
-anchor_right = 0.062
-anchor_bottom = 0.08
-margin_left = -0.384001
-margin_top = -0.200001
-margin_right = 3.512
-margin_bottom = -0.999973
-text = "Barang :
-"
-
-[node name="itemnotification" type="Label" parent="CanvasLayer/itemlist"]
-visible = false
-anchor_top = 0.753
-anchor_bottom = 0.753
-margin_top = 24.0
-margin_right = 40.0
-margin_bottom = 38.0
-
-[node name="Timer" type="Timer" parent="CanvasLayer/itemlist/itemnotification"]
-wait_time = 5.0
-
-[node name="gameover" type="Control" parent="CanvasLayer"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/gameover"]
-margin_right = 1024.0
-margin_bottom = 608.0
-color = Color( 0, 0, 0, 0.541176 )
-
-[node name="Panel" type="Panel" parent="CanvasLayer/gameover"]
-anchor_left = -0.388
-anchor_top = 0.422
-anchor_right = 0.633
-anchor_bottom = 1.178
-margin_left = 327.52
-margin_top = 151.12
-margin_right = 654.68
-margin_bottom = 376.88
-
-[node name="Label" type="Label" parent="CanvasLayer/gameover/Panel"]
-anchor_left = 0.42
-anchor_top = 0.206
-anchor_right = 0.592
-anchor_bottom = 0.257
-margin_top = -0.0319901
-margin_right = 0.199997
-margin_bottom = 0.0960159
-text = "You Died..."
-align = 1
-
-[node name="gameoverbutton" type="Button" parent="CanvasLayer/gameover/Panel"]
-anchor_left = 0.32
-anchor_top = 0.471
-anchor_right = 0.687
-anchor_bottom = 0.86
-margin_left = -1.52588e-05
-margin_top = -0.111969
-margin_right = 0.199982
-margin_bottom = 0.0800476
-disabled = true
-shortcut_in_tooltip = false
-shortcut = SubResource( 22 )
-text = "Retry"
-icon = ExtResource( 14 )
-
-[node name="start" type="Control" parent="CanvasLayer"]
-margin_right = 1024.0
-margin_bottom = 40.0
-script = ExtResource( 12 )
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/start"]
-margin_right = 1024.0
-margin_bottom = 608.0
-color = Color( 0, 0, 0, 0.541176 )
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/start"]
-anchor_left = 0.266
-anchor_right = 0.734
-anchor_bottom = 0.8
-margin_left = -0.384003
-margin_top = 24.0
-margin_right = 0.383972
-margin_bottom = 24.0
-texture = ExtResource( 15 )
-
-[node name="start" type="Button" parent="CanvasLayer/start"]
-anchor_left = 0.477
-anchor_top = 0.88
-anchor_right = 0.524
-anchor_bottom = 0.913
-margin_left = -16.4481
-margin_top = 500.8
-margin_right = 22.6719
-margin_bottom = 529.0
-shortcut_in_tooltip = false
-shortcut = SubResource( 26 )
-text = "Start"
-
+[connection signal="timeout" from="Knight/CanvasLayer/itemlist/itemnotification/Timer" to="Knight" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Knight/CanvasLayer/gameover/Panel/gameoverbutton" to="." method="_on_gameoverbutton_pressed"]
+[connection signal="pressed" from="Knight/CanvasLayer/start/ColorRect/start" to="Knight" method="_on_start_pressed"]
+[connection signal="pressed" from="Knight/CanvasLayer/start/ColorRect/start" to="Knight/CanvasLayer/start" method="_on_start_pressed"]
 [connection signal="body_entered" from="chest1" to="chest1" method="_on_chest1_body_entered"]
 [connection signal="body_exited" from="chest1" to="chest1" method="_on_chest1_body_exited"]
 [connection signal="pressed" from="chest1/chestunder" to="." method="_on_chestunder_pressed"]
@@ -960,7 +954,3 @@ text = "Start"
 [connection signal="pressed" from="chest2/chesttree" to="." method="_on_chesttree_pressed"]
 [connection signal="pressed" from="chest2/chesttree" to="Knight" method="_on_chesttree_pressed"]
 [connection signal="body_entered" from="fallarea" to="." method="_on_fallarea_body_entered"]
-[connection signal="timeout" from="CanvasLayer/itemlist/itemnotification/Timer" to="." method="_on_Timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/gameover/Panel/gameoverbutton" to="." method="_on_gameoverbutton_pressed"]
-[connection signal="pressed" from="CanvasLayer/start/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/start/start" to="CanvasLayer/start" method="_on_start_pressed"]
