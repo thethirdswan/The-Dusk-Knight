@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://sprite/tilemap/sheet.png" type="Texture" id=1]
 [ext_resource path="res://sprite/background/parallax-mountain-mountains.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://sprite/background/parallax-mountain-foreground-trees.png" type="Texture" id=4]
 [ext_resource path="res://sprite/background/parallax-mountain-trees.png" type="Texture" id=5]
 [ext_resource path="res://Knight.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Crate.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sign.tscn" type="PackedScene" id=8]
 [ext_resource path="res://script/Main.gd" type="Script" id=9]
 [ext_resource path="res://chestarea.tscn" type="PackedScene" id=10]
@@ -905,15 +904,6 @@ limit_right = 1024
 limit_bottom = 600
 limit_smoothed = true
 offset_v = -0.26
-
-[node name="Crate1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 220, 469 )
-
-[node name="Crate2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 200, 469 )
-
-[node name="Crate3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 210, 448 )
 
 [node name="signarea1" parent="." instance=ExtResource( 8 )]
 position = Vector2( 647, 469 )
